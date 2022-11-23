@@ -90,7 +90,17 @@ CREATE TABLE IF NOT EXISTS ai_med.pacjent
     CONSTRAINT pacjent_pkey PRIMARY KEY (id)
 );
 
-ALTER TABLE IF EXISTS ai_med.pacjent ADD COLUMN ostatni_insert_danych DATE;
+
+CREATE TABLE IF NOT EXISTS ai_med.pacjent_insert_timestamp_table
+(
+    id serial NOT NULL,
+    ostatni_insert_danych date NOT NULL,
+	ostatnie_powiadomienie_dla_MLE date
+);
+
+
+
+--ALTER TABLE IF EXISTS ai_med.pacjent ADD COLUMN ostatni_insert_danych DATE;
 
 ALTER TABLE IF EXISTS ai_med."Aktualnie przyjmowane leki"
     ADD FOREIGN KEY (id)
