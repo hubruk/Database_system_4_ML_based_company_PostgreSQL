@@ -1,0 +1,2 @@
+TRUNCATE TABLE ai_med.pacjent, ai_med."Aktualnie przyjmowane leki", ai_med."leczenie_w_kierunku_kod_ICD_10", ai_med.morfologia
+, ai_med."Nazwa pliku z notatkami lekarskimi", ai_med.objawy, ai_med.obrazy, ai_med.operacje RESTART IDENTITY CASCADE
