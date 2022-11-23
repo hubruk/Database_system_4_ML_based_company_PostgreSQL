@@ -90,6 +90,8 @@ CREATE TABLE IF NOT EXISTS ai_med.pacjent
     CONSTRAINT pacjent_pkey PRIMARY KEY (id)
 );
 
+ALTER TABLE IF EXISTS ai_med.pacjent ADD COLUMN ostatni_insert_danych DATE;
+
 ALTER TABLE IF EXISTS ai_med."Aktualnie przyjmowane leki"
     ADD FOREIGN KEY (id)
     REFERENCES ai_med.pacjent (id) MATCH SIMPLE
