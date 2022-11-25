@@ -91,16 +91,18 @@ CREATE TABLE IF NOT EXISTS ai_med.pacjent
 );
 
 
+
+--NOWE
 CREATE TABLE IF NOT EXISTS ai_med.pacjent_insert_timestamp_table
 (
     id serial NOT NULL,
     ostatni_insert_danych date NOT NULL,
-	ostatnie_powiadomienie_dla_MLE date
+    ostatnie_powiadomienie_dla_mle date,
+    PRIMARY KEY (id)
 );
 
 
 
---ALTER TABLE IF EXISTS ai_med.pacjent ADD COLUMN ostatni_insert_danych DATE;
 
 ALTER TABLE IF EXISTS ai_med."Aktualnie przyjmowane leki"
     ADD FOREIGN KEY (id)
@@ -153,5 +155,16 @@ ALTER TABLE IF EXISTS ai_med.operacje
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
+
+
+
+--NOWE
+ALTER TABLE IF EXISTS ai_med.pacjent_insert_timestamp_table
+    ADD CONSTRAINT pacjent_insert_timestamp_table_id_fkey FOREIGN KEY (id)
+    REFERENCES ai_med.pacjent (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
 
 END;
